@@ -1,0 +1,284 @@
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local title = Instance.new("TextLabel")
+local x = Instance.new("TextButton")
+local KLL = Instance.new("TextButton")
+local GD = Instance.new("TextButton")
+
+
+hum = game.Players.LocalPlayer.Character.HumanoidRootPart
+thePlayer = game.Players.LocalPlayer.Character
+
+
+
+ScreenGui.Parent = game.CoreGui
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.new(20, 20, 20)
+Frame.BorderColor3 = Color3.new(30, 30, 30)
+Frame.BorderSizePixel = 4
+Frame.Active = true
+Frame.Draggable = true
+Frame.Position = UDim2.new(0,0,0)
+Frame.Size = UDim2.new(0, 405, 0, 223)
+
+title.Name = "title"
+title.Parent = Frame
+title.BackgroundColor3 = Color3.new(0.0862745, 0.627451, 0.521569)
+title.BorderColor3 = Color3.new(0.152941, 0.682353, 0.376471)
+title.BorderSizePixel = 4
+title.Position = UDim2.new(0, 0, -0.00442997552, 0)
+title.Size = UDim2.new(0, 405, 0, 50)
+title.Font = Enum.Font.GothamBold
+title.Text = "fOR NERD JOSHY"
+title.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+title.TextSize = 35
+title.TextWrapped = true
+
+x.Name = "x"
+x.Parent = Frame
+x.BackgroundColor3 = Color3.new(1, 1, 1)
+x.BackgroundTransparency = 1
+x.Position = UDim2.new(0.923479378, 0, -0.00442997552, 0)
+x.Size = UDim2.new(0, 30, 0, 27)
+x.Font = Enum.Font.GothamBold
+x.Text = "X"
+x.TextColor3 = Color3.new(0.752941, 0.223529, 0.168627)
+x.TextScaled = true
+x.TextSize = 14
+x.TextWrapped = true
+x.MouseButton1Down:connect(function()
+	Frame.Visible = false
+end)
+
+KLL.Name = "KLL"
+KLL.Parent = Frame
+KLL.BackgroundColor3 = Color3.new(0.0862745, 0.627451, 0.521569)
+KLL.BorderColor3 = Color3.new(0.152941, 0.682353, 0.376471)
+KLL.BorderSizePixel = 4
+KLL.Position = UDim2.new(0.0247140378, 0, 0.331892878, 0)
+KLL.Size = UDim2.new(0, 152, 0, 44)
+KLL.Font = Enum.Font.GothamBold
+KLL.Text = "working on kill currently"
+KLL.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+KLL.TextSize = 21
+KLL.MouseButton1Down:connect(function()
+ 
+if modifier == true then
+modifier = false
+KLL.BackgroundColor3 = Color3.new(0.0862745, 0.627451, 0.521569)
+else
+modifier = true
+KLL.BackgroundColor3 = Color3.new(40, 127, 71)
+kill()
+end
+end)
+
+
+GD.Name = "GD"
+GD.Parent = Frame
+GD.BackgroundColor3 = Color3.new(0.0862745, 0.627451, 0.521569)
+GD.BorderColor3 = Color3.new(0.152941, 0.682353, 0.376471)
+GD.BorderSizePixel = 4
+GD.Position = UDim2.new(0.600022674, 0, 0.331892878, 0)
+GD.Size = UDim2.new(0, 152, 0, 44)
+GD.Font = Enum.Font.GothamBold
+GD.Text = "INF. HEALTH"
+GD.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+GD.TextSize = 21
+GD.MouseButton1Down:connect(function()
+ 
+if eak == true then
+eak = false
+GD.BackgroundColor3 = Color3.new(0.0862745, 0.627451, 0.521569)
+else
+eak = true
+GD.BackgroundColor3 = Color3.new(40, 127, 71)
+gode()
+end
+end)
+
+
+
+
+
+local Camera = game.Workspace.CurrentCamera
+local InputService = game:GetService("UserInputService")
+
+local GameId = game.PlaceId
+
+
+local WINDOW_NAME = "Kill Aura made by slump 👻#7161 ;)"
+local SIZE_X = 150
+local SIZE_Y = 85
+
+local BASE_COLOR = Color3.fromRGB(20, 20, 20)
+local BASE_COLOR2 = Color3.fromRGB(30, 30, 30)
+local TEXT_COLOR = Color3.fromRGB(255, 255, 255)
+local TOP_SIZE = 20
+local CONTENT1_SIZE = SIZE_X/2.6
+
+
+
+local MenuList = {}
+local Keybinds = {}
+
+local LocalPlayer = game.Players.LocalPlayer
+local PlayerGui = LocalPlayer.PlayerGui
+
+local OldGui = PlayerGui:FindFirstChild(WINDOW_NAME)
+if OldGui then
+	OldGui:Destroy()
+end
+
+local Gui = Instance.new("ScreenGui")
+Gui.Name = WINDOW_NAME
+Gui.ResetOnSpawn = false
+
+local MainFrame = Instance.new("Frame")
+MainFrame.Name = "MainFrame"
+MainFrame.Size = UDim2.new(0, SIZE_X, 0, SIZE_Y)
+MainFrame.Position = UDim2.new(0, 280, 0, 4)
+MainFrame.Draggable = true
+MainFrame.BorderSizePixel = 0
+MainFrame.BackgroundColor3 = BASE_COLOR
+MainFrame.BackgroundTransparency = 0.3
+MainFrame.Active = true
+MainFrame.Parent = Gui
+
+local Content1 = Instance.new("ScrollingFrame")
+Content1.Name = "Content1"
+Content1.Size = UDim2.new(1, 0, 1, -TOP_SIZE)
+Content1.Position = UDim2.new(0, 0, 0, TOP_SIZE)
+Content1.CanvasSize = UDim2.new(0, 0, 0, 20)
+Content1.ScrollBarThickness = 6
+Content1.BorderSizePixel = 0
+Content1.BackgroundColor3 = BASE_COLOR
+Content1.BackgroundTransparency = 0.7
+Content1.Parent = MainFrame
+
+local ListLayout = Instance.new("UIListLayout")
+ListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+ListLayout.Parent = Content1
+
+local Paddding = Instance.new("UIPadding")
+Paddding.PaddingBottom = UDim.new(0, 5)
+Paddding.PaddingTop = UDim.new(0, 5)
+Paddding.PaddingLeft = UDim.new(0, 5)
+Paddding.PaddingRight = UDim.new(0, 5)
+Paddding.Parent = Content1
+
+local Topbar = Instance.new("Frame")
+Topbar.Name = "Topbar"
+Topbar.BorderSizePixel = 0
+Topbar.BackgroundColor3 = BASE_COLOR
+Topbar.BackgroundTransparency = 0
+Topbar.AnchorPoint = Vector2.new(0, 0)
+Topbar.Position = UDim2.new(0, 0, 0, 0)
+Topbar.Size = UDim2.new(1, 0, 0, TOP_SIZE)
+Topbar.Parent = MainFrame
+
+local TopText = Instance.new("TextLabel")
+TopText.BorderSizePixel = 0
+TopText.BackgroundTransparency = 1
+TopText.TextColor3 = TEXT_COLOR
+TopText.AnchorPoint = Vector2.new(0.5, 0.5)
+TopText.Position = UDim2.new(0.5, 0, 0.5, 0)
+TopText.Size = Topbar.Size - UDim2.new(0, 15, 0, 5)
+TopText.TextXAlignment = Enum.TextXAlignment.Left
+TopText.Text = WINDOW_NAME
+TopText.Font = Enum.Font.SourceSansBold
+TopText.TextScaled = true
+TopText.Parent = Topbar
+
+Gui.Parent = PlayerGui
+
+
+
+function NewObject(Type, Name)
+	local Object = Instance.new(Type)
+	Object.Name = Name
+	return Object
+end
+
+function ClearChildrenOfType(Parent, Type)
+	for _, Child in pairs(Parent:GetChildren()) do
+		if Child:IsA(Type) then
+			Child:Destroy()
+		end
+	end
+end
+
+local function AliveCheck()
+	if Gui ~= nil and Gui.Parent ~= nil and script ~= nil then
+		return true
+	else
+		return false
+	end
+end
+
+local Label = NewObject("TextLabel", "Label")
+Label.Font = Enum.Font.GothamSemibold
+Label.TextSize = 12
+Label.BackgroundTransparency = 1
+Label.Size = UDim2.new(1, 0, 0, 30)
+Label.TextColor3 = TEXT_COLOR
+Label.Text = "loading for nerd josh"
+Label.Parent = Content1
+
+local StopButton = Instance.new("TextButton")
+StopButton.Size = UDim2.new(1, 0, 0, 25)
+StopButton.BackgroundTransparency = 0
+StopButton.BackgroundColor3 = BASE_COLOR2
+StopButton.BorderSizePixel = 0
+StopButton.TextColor3 = TEXT_COLOR
+StopButton.Text = "Stop"
+StopButton.Font = Enum.Font.SourceSans
+StopButton.TextSize = 17
+StopButton.Parent = Content1
+
+StopButton.MouseButton1Click:connect(function()
+	Gui:Destroy()
+	script:Destroy()
+end)
+wait(.7)
+spawn(function()
+	while true do
+		if AliveCheck() == false then
+			print(WINDOW_NAME .. " closed")
+			script:Destroy()
+			return
+		end
+		print("LOOP")
+		Label.Text = "Subject: " .. Camera.CameraSubject.Parent.Name
+		
+		for _, Player in pairs(game.Players:GetChildren()) do
+			local Char = Player.Character
+			
+			if Char and Player.Team ~= LocalPlayer.Team and Player.Name ~= Camera.CameraSubject.Parent.Name then
+				
+				local Root = Char:FindFirstChild("HumanoidRootPart")
+				if Root then
+					local Dist = (Camera.CFrame.Position - Root.Position).Magnitude
+					if Dist < 40 then
+						ReloadGun()
+						for i = 1, 11 do
+							ShootTarget(Char)
+							wait()
+						end
+					end
+				end
+			end
+		end
+		
+		wait(1)
+	end
+end)
+
+
+function gode()
+	while eak do
+		wait()
+		game.Players.LocalPlayer.Character.Humanoid.MaxHealth = math.huge
+	end
+end
